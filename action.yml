@@ -1,4 +1,4 @@
-name: 'orcid_source_seed'
+name: 'orcid_source_cache'
 description: 'seed a maven cache'
 
 inputs:
@@ -12,15 +12,6 @@ runs:
   steps:
     - name: adjust the path to include the actions path so scripts in the action can be run
       run: echo "${{ github.action_path }}" >> $GITHUB_PATH
-      shell: bash
-
-    - name: Cache local Maven repository keyed off the pom
-      uses: actions/cache@v3
-      with:
-        path: ~/.m2/repository
-        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-        restore-keys: |
-          ${{ runner.os }}-maven-
       shell: bash
 
     - name: download maven dependencies
