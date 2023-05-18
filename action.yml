@@ -1,4 +1,4 @@
-name: 'orcid_source_cache'
+name: 'seed_maven_cache'
 description: 'seed a maven cache'
 
 inputs:
